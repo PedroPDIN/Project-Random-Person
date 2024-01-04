@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Ubuntu } from 'next/font/google'
+import Header from '@/components/Header'
 import './globals.css'
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ubuntu.className}>{children}</body>
+      <body className={ubuntu.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
