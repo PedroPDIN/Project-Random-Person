@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import { Ubuntu } from 'next/font/google'
 import Header from '@/components/Header'
+import NavBar from '@/components/NavBar'
+import { Ubuntu } from 'next/font/google'
+import { MainProvider } from '@/store/context/Main.context'
 import './globals.css'
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -16,10 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={ubuntu.className}>
-        <Header />
-        {children}
+        <MainProvider>
+          <Header />
+          <NavBar />
+          {children}
+        </MainProvider>
       </body>
     </html>
   )
