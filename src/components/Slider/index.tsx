@@ -16,14 +16,14 @@ export function Slider({ data }: Props) {
         <div
           key={person.name}
           id="slides-person"
-          className="hover:bg-slate-300 p-1 rounded-md cursor-pointer inline-block mx-4"
+          className="cursor-pointer inline-block mx-4 "
         >
           <Image
             src={person.picture.large}
             alt="thumbnail person"
             width={90}
             height={90}
-            className="rounded-full"
+            className="rounded-full hover:border-solid hover:border-[1px] hover:border-slate-300 p-1 transition ease-out"
           />
         </div>
       ))}
@@ -31,14 +31,14 @@ export function Slider({ data }: Props) {
         <div
           key={person.name}
           id="slides-person"
-          className="hover:bg-slate-300 p-1 rounded-md cursor-pointer inline-block mx-4"
+          className="cursor-pointer inline-block mx-4"
         >
           <Image
             src={person.picture.large}
             alt="thumbnail person"
             width={90}
             height={90}
-            className="rounded-full"
+            className="rounded-full hover:border-solid hover:border-[1px] hover:border-slate-300 p-1 transition ease-out"
           />
         </div>
       ))}
