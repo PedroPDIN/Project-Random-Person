@@ -7,7 +7,5 @@ export const useMainContext = (): IDataType => {
   if (!context) {
     throw new Error("erro no Contexto.");
   }
-
-  console.log(context.isOpenNavBar)
   return context;
 };

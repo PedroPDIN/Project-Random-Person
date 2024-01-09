@@ -28,10 +28,10 @@ export default function Header() {
         )}
 
         <div className="w-full h-full flex justify-center absolute z-0">
-          <h1 className="text-3xl font-bold flex items-center text-center">Random Users</h1>
+          <h1 className="text-3xl font-bold flex items-center text-center">Random Person</h1>
         </div>
       </div>
-      <div className="p-14 bg-[#2c2e31] shadow-2xl"></div>
+      <div className="p-16 bg-[#2c2e31] shadow-2xl"></div>
     </header>
   )
 }

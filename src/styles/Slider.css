@@ -1,0 +1,38 @@
+/* animation slide */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-150px * 10));
+  }
+}
+
+#slide-container:before,
+#slide-container:after {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+#slide-container:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white) !important;
+}
+
+#slide-container:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white) !important;
+}
+
+
+#slide-container:hover, #slides-person {
+  animation-play-state: paused;
+}
+
+#slides-person {
+  animation: 40s slide infinite linear;
+}
