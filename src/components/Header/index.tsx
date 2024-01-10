@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useMainContext } from "@/hooks/useMainContext";
 
 export default function Header() {
-  const { isOpenNavBar, toggleIsOpen } = useMainContext();
+  const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
 
   return (
     <header className="bg-[#2c2e31] text-white relative h-20 z-0">
@@ -28,7 +28,7 @@ export default function Header() {
         )}
 
         <div className="w-full h-full flex justify-center absolute z-0">
-          <h1 className="text-3xl font-bold flex items-center text-center">Random Person</h1>
+          <h1 className="text-3xl font-bold flex items-center text-center">{ title }</h1>
         </div>
       </div>
       <div className="p-16 bg-[#2c2e31] shadow-2xl"></div>

@@ -16,15 +16,15 @@ export default function NavBar() {
           <ul className="text-[22px] font-bold text-white grid gap-1" >
             <li>
               <Link href="/" className="flex items-center grip gap-2 hover:bg-[#484b50] rounded-md p-2 transition">
-                <AiFillHome className="text-2xl mb-1" />
-                <span>Pagina Inicial</span>
+                <AiFillHome className="mb-1" />
+                <span className="text-xl">Pagina Inicial</span>
               </Link>
             </li>
   
             <li>
               <Link href="/search" className="flex items-center grip gap-2 hover:bg-[#484b50] rounded-md p-2 transition">
-                <AiOutlineSearch className="text-2xl mb-1" />
-                <span>Procurar</span>
+                <AiOutlineSearch className="mb-1" />
+                <span className="text-xl">Procurar</span>
               </Link>
             </li>
           </ul>
