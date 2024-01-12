@@ -31,7 +31,7 @@ export interface IDataResponse {
   }
 };
 
-export interface IDataPersonResult {
+export interface IUserData {
   gender: string;
   name: string;
   street: { number: number, name: string };

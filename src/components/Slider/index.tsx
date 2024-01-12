@@ -1,10 +1,10 @@
-import { IDataPersonResult } from "@/interfaces/IDataPerson"
+import { IUserData } from "@/interfaces/IDataUser"
 import Image from "next/image";
 import "@/styles/Slider.css";
 
 interface Props {
-  data: IDataPersonResult[];
-}
+  data: IUserData[];
+};
 
 export function Slider({ data }: Props) {
   return (

@@ -15,7 +15,7 @@ export function MainProvider({ children }: Props) {
   const [isOpenNavBar, setIsOpenNavBar] = useState<boolean>(false);
   const [title] = useState<string>("Random Person");
 
-  const toggleIsOpen = () => setIsOpenNavBar(!isOpenNavBar)
+  const toggleIsOpen = () => setIsOpenNavBar(!isOpenNavBar);
 
   const contextValue = {
     isOpenNavBar,

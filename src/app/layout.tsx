@@ -30,7 +30,7 @@ export default async function RootLayout({
             <NavBar />
             {children}
           </main>
-          <Footer avatarUser={ profileUser.avatar_url } urlUser={ profileUser.html_url } />
+          <Footer avatarUser={profileUser.avatar_url} urlUser={profileUser.html_url} />
         </MainProvider>
       </body>
     </html>

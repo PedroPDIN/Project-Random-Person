@@ -1,4 +1,4 @@
-import { IDataPersonResult } from "@/interfaces/IDataPerson";
+import { IUserData } from "@/interfaces/IDataUser";
 import Image from "next/image";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -11,13 +11,20 @@ import {
 } from "@/components/ui/tooltip"
 
 interface Props {
-  data: IDataPersonResult[];
+  data: IUserData[];
   limit: number;
+  valueColumns?: number
   positionInitial?: number;
   positionEnd?: number;
 }
 
-export function ProfilesUsers({ data, limit, positionInitial, positionEnd }: Props) { 
+export function ProfilesUsers({
+  data,
+  limit,
+  positionInitial,
+  positionEnd,
+  valueColumns
+}: Props) {
   let initial = 0;
   let end = limit;
 
@@ -34,7 +41,7 @@ export function ProfilesUsers({ data, limit, positionInitial, positionEnd }: Pro
   };
 
   return (
-    <div className="flex gap-4">
+    <div className={`grid grid-cols-${valueColumns} gap-4`}>
       {data.slice(initial, end).map((person) => (
         <div
           key={person.name}
