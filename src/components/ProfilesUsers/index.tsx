@@ -18,6 +18,11 @@ interface Props {
   positionEnd?: number;
 }
 
+const defineClassContainer = (columns: number | undefined): string => {
+  if (columns === 4) return "grid grid-cols-4 gap-4";
+  return "grid grid-cols-3 gap-4"
+} 
+
 export function ProfilesUsers({
   data,
   limit,
@@ -25,8 +30,8 @@ export function ProfilesUsers({
   positionEnd,
   valueColumns
 }: Props) {
-  let initial = 0;
-  let end = limit;
+  let initial: number = 0;
+  let end: number = limit;  
 
   if (!positionInitial || positionInitial === 0) {
     initial = 0;
@@ -41,7 +46,7 @@ export function ProfilesUsers({
   };
 
   return (
-    <div className={`grid grid-cols-${valueColumns} gap-4`}>
+    <div className={defineClassContainer(valueColumns)}>
       {data.slice(initial, end).map((person) => (
         <div
           key={person.name}
