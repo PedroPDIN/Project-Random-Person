@@ -5,6 +5,7 @@ import { Ubuntu } from 'next/font/google';
 import { MainProvider } from '@/store/context/Main.context';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
+import { ScrollEvent } from '@/utils/scrollEvent';
 import './globals.css';
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -19,7 +20,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const profileUser = await getUserGithub()
+  const profileUser = await getUserGithub();
 
   return (
     <html lang="pt-BR">
@@ -28,9 +29,14 @@ export default async function RootLayout({
           <main>
             <Header />
             <NavBar />
-            {children}
+            <ScrollEvent>
+              {children}
+            </ScrollEvent>
           </main>
-          <Footer avatarUser={profileUser.avatar_url} urlUser={profileUser.html_url} />
+          <Footer
+            avatarUser={profileUser.avatar_url}
+            urlUser={profileUser.html_url}
+          />
         </MainProvider>
       </body>
     </html>
