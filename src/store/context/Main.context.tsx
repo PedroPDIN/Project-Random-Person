@@ -19,6 +19,7 @@ export function MainProvider({ children }: Props) {
 
   const contextValue = {
     isOpenNavBar,
+    setIsOpenNavBar,
     toggleIsOpen,
     title,
   };
