@@ -8,10 +8,10 @@ interface Props {
 }
 
 export const ScrollEvent = ({ children }: Props) => {
-  const { toggleIsOpen } = useMainContext();
+  const { setIsOpenNavBar } = useMainContext();
 
   useEffect(() => {
-    document.addEventListener('scroll', toggleIsOpen)
+    document.addEventListener('scroll', () => setIsOpenNavBar(false))
   }, []);
 
   return (
