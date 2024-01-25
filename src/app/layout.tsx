@@ -5,7 +5,7 @@ import { Ubuntu } from 'next/font/google';
 import { MainProvider } from '@/store/context/Main.context';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
-import { ScrollEvent } from '@/utils/scrollEvent';
+import { ScrollEvent } from '@/components/ScrollEvent';
 import './globals.css';
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
