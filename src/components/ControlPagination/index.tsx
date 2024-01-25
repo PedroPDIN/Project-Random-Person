@@ -6,10 +6,14 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
 export default function PagePagination() {
-  const [page, setPage] = useState<string>(localStorage.getItem("page") || "1");
+  const [page, setPage] = useState<string>("1");
   const router = useRouter();
 
   useEffect(() => { // necessário usar useEffect para evitar erro de pilhagem.
+    if (typeof window !== 'undefined') { // verifica se window está definido (indicando que está em um ambiente de navegador)
+      const savedPage = localStorage.getItem("page")
+      setPage(savedPage || "1");
+    }
     router.push(`/users/?page=${page}`)
   }, [page]);
   
