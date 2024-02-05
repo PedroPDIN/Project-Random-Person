@@ -1,5 +1,6 @@
 import { IUserData } from "@/interfaces/IDataUser";
 import Image from "next/image";
+import Link from "next/link";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -12,7 +13,9 @@ import {
 
 interface Props {
   data: IUserData[];
-  limit: number;
+  page?: number; // opcionais por enquanto
+  limit: number; // opcionais por enquanto
+  seed?: string; // opcionais por enquanto
   valueColumns?: number
   positionInitial?: number;
   positionEnd?: number;
@@ -25,7 +28,9 @@ const defineClassContainer = (columns: number | undefined): string => {
 
 export function ProfilesUsers({
   data,
+  page,
   limit,
+  seed,
   positionInitial,
   positionEnd,
   valueColumns
@@ -45,10 +50,15 @@ export function ProfilesUsers({
     end = positionEnd;
   };
 
+  const structureUrl = (name: string, limit: number): string => {
+    return `/user/${name.split(" ").join("-").toLowerCase()}?page=${page}&limit=${limit}&seed=${seed}`
+  }
+
   return (
     <div className={defineClassContainer(valueColumns)}>
       {data.slice(initial, end).map((person) => (
-        <div
+        <Link
+          href={structureUrl(person.name, limit)}
           key={person.name}
           className="bg-white shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
         >
@@ -105,7 +115,7 @@ export function ProfilesUsers({
               </Tooltip>
             </TooltipProvider>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   )

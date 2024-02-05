@@ -1,5 +1,10 @@
 import { IUserData, IDataResponse, IInfoResponse } from "@/interfaces/IDataUser";
 
+type UsersList = {
+  data: IUserData[],
+  seed: string,
+}
+
 const structureData = (data: IDataResponse[]) => {
   const newData = data.map((person) => ({
     gender: person.gender,
@@ -27,7 +32,7 @@ export const getPersonInitial = async (): Promise<IUserData[]> => {
   return structuredData;
 }
 
-export const getUsersList = async (page: number, limit: number): Promise<IUserData[]> => {
+export const getUsersList = async (page: number, limit: number): Promise<UsersList> => {
   const responseInicial = await fetch(`https://randomuser.me/api/?page=1&results=${limit}`)
   const dataApi = await responseInicial.json();
   const dataUser: IDataResponse[] = dataApi.results;
@@ -35,12 +40,31 @@ export const getUsersList = async (page: number, limit: number): Promise<IUserDa
 
   if (page === 1) {
     const structuredData = structureData(dataUser);
-    return structuredData
+    return { data: structuredData, seed: dataInfo.seed }
   };
   
   const responseDataSeed = await fetch(`https://randomuser.me/api/?page=${page}&results=${limit}&seed=${dataInfo.seed}`);
+  
   const dataApiSeed = await responseDataSeed.json();
   const dataUserSeed: IDataResponse[] = dataApiSeed.results;
   const structuredData = structureData(dataUserSeed);
-  return structuredData;
+  return { data: structuredData, seed: dataInfo.seed }
+}
+
+
+export const getFilterUserApi = async (
+  name: string,
+  page: string,
+  limit: string,
+  seed: string): Promise<IUserData> => {
+  const responseAllList = await fetch(`https://randomuser.me/api/?page=${page}&results=${limit}&seed=${seed}`);
+  const dataAllList = await responseAllList.json();
+  const dataUsers: IDataResponse[] = dataAllList.results;
+  const structuredData = structureData(dataUsers);
+
+  const user = structuredData.find(
+    (user) => user.name.split(" ").join("-").toLowerCase() === decodeURIComponent(name).toLowerCase()
+  );
+  
+  return user as IUserData;
 }

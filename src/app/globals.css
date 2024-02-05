@@ -97,5 +97,5 @@ body {
 }
 
 main {
-  padding-bottom: 30rem !important; /* space footer */
+  padding-bottom: 30rem; /* space footer */
 }

@@ -10,7 +10,13 @@ export default async function Users({ searchParams }: { searchParams: { page: st
   return (
     <div className="flex items-center justify-center">
       <div className="p-8 bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
-        <ProfilesUsers data={usersList} limit={LIMIT_LIST_USERS} valueColumns={4} />
+        <ProfilesUsers
+          data={usersList.data}
+          page={+page}
+          seed={ usersList.seed }
+          limit={LIMIT_LIST_USERS}
+          valueColumns={4}
+        />
         <ControlPagination />
       </div>
     </div>
