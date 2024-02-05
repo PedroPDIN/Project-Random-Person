@@ -5,22 +5,33 @@ import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 
 export default async function Home() {
-  const personList = await getPersonInitial();
+  const LIMIT_USER = 18;
+  const { data, page, seed, limit } = await getPersonInitial(LIMIT_USER);
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-col shadow-md mt-32 w-full">
-        <Slider data={personList} />
+        <Slider data={data} />
       </div>
 
       <div className="flex flex-col items-center justify-center gap-6 p-8 bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
-        <ProfilesUsers data={personList} limit={3} />
         <ProfilesUsers
-          data={personList}
-          limit={3}
+          data={data}
+          limitProfile={3}
+          page={page as number}
+          seed={seed as string}
+          limit={limit as number}
+        />
+        
+        <ProfilesUsers
+          data={data}
+          limitProfile={3}
           positionInitial={4}
           positionEnd={6}
           valueColumns={3}
+          page={page as number}
+          seed={seed as string}
+          limit={limit as number}
         />
 
         <Link

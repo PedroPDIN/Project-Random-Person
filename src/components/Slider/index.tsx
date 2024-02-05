@@ -16,7 +16,7 @@ export function Slider({ data }: Props) {
         <div
           key={person.name}
           id="slides-person"
-          className="cursor-pointer inline-block mx-4 "
+          className="inline-block mx-4 "
         >
           <Image
             src={person.picture.large}

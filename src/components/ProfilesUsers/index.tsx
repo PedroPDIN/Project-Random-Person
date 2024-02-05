@@ -13,9 +13,10 @@ import {
 
 interface Props {
   data: IUserData[];
-  page?: number; // opcionais por enquanto
-  limit: number; // opcionais por enquanto
-  seed?: string; // opcionais por enquanto
+  limitProfile: number;
+  page: number;
+  seed: string; 
+  limit: number;
   valueColumns?: number
   positionInitial?: number;
   positionEnd?: number;
@@ -33,10 +34,11 @@ export function ProfilesUsers({
   seed,
   positionInitial,
   positionEnd,
-  valueColumns
+  valueColumns,
+  limitProfile
 }: Props) {
   let initial: number = 0;
-  let end: number = limit;  
+  let end: number = limitProfile;  
 
   if (!positionInitial || positionInitial === 0) {
     initial = 0;
@@ -45,12 +47,12 @@ export function ProfilesUsers({
   };
 
   if (!positionEnd || positionEnd === 0) {
-    end = limit;
+    end = limitProfile;
   } else {
     end = positionEnd;
   };
 
-  const structureUrl = (name: string, limit: number): string => {
+  const structureUrl = (name: string): string => {
     return `/user/${name.split(" ").join("-").toLowerCase()}?page=${page}&limit=${limit}&seed=${seed}`
   }
 
@@ -58,7 +60,7 @@ export function ProfilesUsers({
     <div className={defineClassContainer(valueColumns)}>
       {data.slice(initial, end).map((person) => (
         <Link
-          href={structureUrl(person.name, limit)}
+          href={structureUrl(person.name)}
           key={person.name}
           className="bg-white shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
         >

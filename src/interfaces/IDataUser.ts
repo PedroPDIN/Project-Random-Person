@@ -49,5 +49,5 @@ export interface IUserData {
 export interface IInfoResponse {
   seed: string;
   results: string;
-  page: string;
+  page: number;
 };

@@ -2,7 +2,9 @@ import { IUserData, IDataResponse, IInfoResponse } from "@/interfaces/IDataUser"
 
 type UsersList = {
   data: IUserData[],
-  seed: string,
+  page?: number,
+  seed?: string,
+  limit?: number,
 }
 
 const structureData = (data: IDataResponse[]) => {
@@ -24,12 +26,18 @@ const structureData = (data: IDataResponse[]) => {
   return newData;
 }
 
-export const getPersonInitial = async (): Promise<IUserData[]> => { 
-  const response = await fetch('https://randomuser.me/api/?results=18');
+export const getPersonInitial = async (limitUser: number): Promise<UsersList> => { 
+  const response = await fetch(`https://randomuser.me/api/?results=${limitUser}`);
   const dataApi = await response.json();
+  const dataInfo: IInfoResponse = dataApi.info;
   const dataResults: IDataResponse[] = dataApi.results;
   const structuredData = structureData(dataResults);
-  return structuredData;
+  return {
+    data: structuredData,
+    page: dataInfo.page,
+    seed: dataInfo.seed,
+    limit: limitUser,
+  };
 }
 
 export const getUsersList = async (page: number, limit: number): Promise<UsersList> => {
