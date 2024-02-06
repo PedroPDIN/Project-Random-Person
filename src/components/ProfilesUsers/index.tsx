@@ -13,7 +13,7 @@ import {
 
 interface Props {
   data: IUserData[];
-  limitProfile: number;
+  limitRenderProfile: number;
   page: number;
   seed: string; 
   limit: number;
@@ -30,15 +30,15 @@ const defineClassContainer = (columns: number | undefined): string => {
 export function ProfilesUsers({
   data,
   page,
-  limit,
+  limit, // limitação da requisição dos usuários
   seed,
   positionInitial,
   positionEnd,
   valueColumns,
-  limitProfile
+  limitRenderProfile // limite de quantidade de renderização dos usuários
 }: Props) {
   let initial: number = 0;
-  let end: number = limitProfile;  
+  let end: number = limitRenderProfile;  
 
   if (!positionInitial || positionInitial === 0) {
     initial = 0;
@@ -47,7 +47,7 @@ export function ProfilesUsers({
   };
 
   if (!positionEnd || positionEnd === 0) {
-    end = limitProfile;
+    end = limitRenderProfile;
   } else {
     end = positionEnd;
   };

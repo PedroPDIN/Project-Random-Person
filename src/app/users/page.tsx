@@ -13,8 +13,9 @@ export default async function Users({ searchParams }: { searchParams: { page: st
         <ProfilesUsers
           data={usersList.data}
           page={+page}
-          seed={ usersList.seed }
+          seed={ usersList.seed as string}
           limit={LIMIT_LIST_USERS}
+          limitRenderProfile={LIMIT_LIST_USERS}
           valueColumns={4}
         />
         <ControlPagination />
