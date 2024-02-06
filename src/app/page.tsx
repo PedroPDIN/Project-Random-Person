@@ -17,7 +17,7 @@ export default async function Home() {
       <div className="flex flex-col items-center justify-center gap-6 p-8 bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
         <ProfilesUsers
           data={data}
-          limitProfile={3}
+          limitRenderProfile={3}
           page={page as number}
           seed={seed as string}
           limit={limit as number}
@@ -25,7 +25,7 @@ export default async function Home() {
         
         <ProfilesUsers
           data={data}
-          limitProfile={3}
+          limitRenderProfile={3}
           positionInitial={4}
           positionEnd={6}
           valueColumns={3}
