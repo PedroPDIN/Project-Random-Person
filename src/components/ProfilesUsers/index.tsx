@@ -13,13 +13,10 @@ import {
 
 interface Props {
   data: IUserData[];
-  limitRenderProfile: number;
   page: number;
   seed: string; 
   limit: number;
   valueColumns?: number
-  positionInitial?: number;
-  positionEnd?: number;
 }
 
 const defineClassContainer = (columns: number | undefined): string => {
@@ -32,25 +29,8 @@ export function ProfilesUsers({
   page,
   limit, // limitação da requisição dos usuários
   seed,
-  positionInitial,
-  positionEnd,
   valueColumns,
-  limitRenderProfile // limite de quantidade de renderização dos usuários
 }: Props) {
-  let initial: number = 0;
-  let end: number = limitRenderProfile;  
-
-  if (!positionInitial || positionInitial === 0) {
-    initial = 0;
-  } else {
-    initial = positionInitial - 1;
-  };
-
-  if (!positionEnd || positionEnd === 0) {
-    end = limitRenderProfile;
-  } else {
-    end = positionEnd;
-  };
 
   const structureUrl = (name: string): string => {
     return `/user/${name.split(" ").join("-").toLowerCase()}?page=${page}&limit=${limit}&seed=${seed}`
@@ -58,7 +38,7 @@ export function ProfilesUsers({
 
   return (
     <div className={defineClassContainer(valueColumns)}>
-      {data.slice(initial, end).map((person) => (
+      {data.map((person) => (
         <Link
           href={structureUrl(person.name)}
           key={person.name}
