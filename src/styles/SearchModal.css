@@ -1,0 +1,10 @@
+.remove-arrow::-webkit-inner-spin-button,
+.remove-arrow::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+};
+
+/* Para navegadores baseados no mecanismo Gecko (como o Firefox), isso substitui a aparência do elemento para se parecer com um campo de texto padrão. Isso ajuda a remover as setas de incremento/decremento. */
+.remove-arrow  {
+  -moz-appearance: textfield;
+};

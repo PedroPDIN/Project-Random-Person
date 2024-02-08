@@ -10,7 +10,6 @@ export default function Header() {
   return (
     <header className="bg-[#2c2e31] text-white relative h-20 z-0">
       <div className="flex">
-
         {isOpenNavBar ? (
           <button
             className="z-10 h-full absolute flex items-center left-14"

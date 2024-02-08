@@ -6,6 +6,7 @@ import { MainProvider } from '@/store/context/Main.context';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
 import { ScrollEvent } from '@/components/ScrollEvent';
+import SearchModal from '@/components/SearchModal';
 import './globals.css';
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -27,6 +28,7 @@ export default async function RootLayout({
       <body className={ubuntu.className}>
         <MainProvider>
           <main>
+            <SearchModal />
             <Header />
             <NavBar />
             <ScrollEvent>

@@ -15,6 +15,7 @@ export default function PagePagination() {
       setPage(savedPage || "1");
     }
     router.push(`/users/?page=${page}`)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   
   const handleChange = (e: React.ChangeEvent<unknown>, value: number): void => {
