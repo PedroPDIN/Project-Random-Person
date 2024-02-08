@@ -1,5 +1,5 @@
 import { getUsersList } from "@/services/api/randomUser.api";
-import { ProfilesUsers } from "@/components/ProfilesUsers";
+import { ProfilesUsers } from "@/components/ProfilesUsersPagination";
 import ControlPagination from "@/components/ControlPagination";
 
 export default async function Users({ searchParams }: { searchParams: { page: string } }) {

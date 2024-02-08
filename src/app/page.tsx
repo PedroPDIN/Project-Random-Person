@@ -1,6 +1,6 @@
 import { getPersonInitial } from "@/services/api/randomUser.api";
 import { Slider } from "@/components/Slider";
-import { ProfilesUsers } from "@/components/ProfilesUsers";
+import { ProfilesUsers } from "@/components/ProfilesUsersPagination";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 
