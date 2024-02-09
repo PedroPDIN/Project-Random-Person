@@ -1,5 +1,5 @@
 import { getUsersList } from "@/services/api/randomUser.api";
-import { ProfilesUsers } from "@/components/ProfilesUsersPagination";
+import { ProfilesUsers } from "@/components/ProfilesUsers";
 import ControlPagination from "@/components/ControlPagination";
 
 export default async function Users({ searchParams }: { searchParams: { page: string } }) {
@@ -8,7 +8,7 @@ export default async function Users({ searchParams }: { searchParams: { page: st
   const usersList = await getUsersList(+page, LIMIT_LIST_USERS);
 
   return (
-    <div className="flex items-center justify-center">
+    <main className="flex items-center justify-center">
       <div className="p-8 bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
         <ProfilesUsers
           data={usersList.data}
@@ -19,6 +19,6 @@ export default async function Users({ searchParams }: { searchParams: { page: st
         />
         <ControlPagination />
       </div>
-    </div>
+    </main>
   )
 }
