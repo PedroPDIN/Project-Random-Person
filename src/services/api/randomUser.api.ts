@@ -77,10 +77,11 @@ export const getFilterUserApi = async (
   return user as IUserData;
 }
 
-export const getSearchUser = async (limit: number, nat: string, gender: string) => {
+export const getSearchUser = async (limit: string, nat: string, gender: string): Promise<UsersList> => {
   const responseSearchList = await fetch(`https://randomuser.me/api/?results=${limit}&nat=${nat}&gender=${gender}`);
   const dataSearch = await responseSearchList.json();
   const dataSearchUser: IDataResponse[] = dataSearch.results;
+  const dataSearchInfo: IInfoResponse = dataSearch.info;
   const structuredData = structureData(dataSearchUser);
-  return structuredData;
+  return { data: structuredData, page: dataSearchInfo.page, seed: dataSearchInfo.seed };
 }
