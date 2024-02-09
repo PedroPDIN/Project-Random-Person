@@ -1,4 +1,5 @@
-import { getFilterUserApi } from "@/services/api/randomUser.api";
+import { getFilterUserApi, getSearchUser } from "@/services/api/randomUser.api";
+import { IUserData } from "@/interfaces/IDataUser";
 import MapUser from "@/components/MapUser";
 import InfoUser from "@/components/InfoUser";
 import LocationUser from "@/components/LocationUser";
@@ -8,17 +9,35 @@ interface ContextParams {
     name: string,
   },
   searchParams: {
-    page: string;
     limit: string,
+
+    // parâmetros para buscar um usuário randômico através de valores/informações de paginação.
+    page: string;
     seed: string,
+
+    // parâmetros para a busca de usuário randômico especifico com base nos valores que foi passado pelo modal de busca.
+    nat: string,
+    gender: string,
+    type: string,
   },
 };
 
 export default async function User(context: ContextParams) {
   const { params, searchParams } = context;
-  const { page, limit, seed } = searchParams;
+  const { page, limit, seed, type, nat, gender } = searchParams;
   const { name } = params;
-  const dataUser = await getFilterUserApi(name, page, limit, seed);
+  let dataUser: IUserData;
+
+  if (type === "search") {
+    const searchTest = await getSearchUser(limit, nat, gender);
+
+    dataUser = searchTest.data.find((user) => (
+      user.name.split(" ").join("-").toLowerCase() === decodeURIComponent(name).toLowerCase()
+    )) as IUserData;
+  } else {
+    dataUser = await getFilterUserApi(name, page, limit, seed);
+  }
+  
   const position = {
     latitude: dataUser.coordinates.latitude,
     longitude: dataUser.coordinates.longitude,

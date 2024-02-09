@@ -17,11 +17,14 @@ interface Props {
   seed: string; 
   limit: number;
   valueColumns?: number
+  isSearch?: boolean;
+  nat?: string,
+  gender?: string,
 }
 
 const defineClassContainer = (columns: number | undefined): string => {
   if (columns === 4) return "grid grid-cols-4 gap-4";
-  return "grid grid-cols-3 gap-4"
+  return "grid grid-cols-3 gap-4";
 } 
 
 export function ProfilesUsers({
@@ -30,9 +33,15 @@ export function ProfilesUsers({
   limit, // limitação da requisição dos usuários
   seed,
   valueColumns,
+  isSearch,
+  nat,
+  gender,
 }: Props) {
 
   const structureUrl = (name: string): string => {
+    if (isSearch) { 
+      return `/user/${name.split(" ").join("-").toLowerCase()}?type=search&limit=${limit}&nat=${nat}&gender=${gender}`
+    }
     return `/user/${name.split(" ").join("-").toLowerCase()}?page=${page}&limit=${limit}&seed=${seed}`
   }
 
