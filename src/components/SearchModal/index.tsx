@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useMainContext } from "@/hooks/useMainContext";
-import nationalitiesList from "@/utils/nationalities";
 import { IoMdClose } from "react-icons/io";
+import nationalitiesList from "@/utils/nationalities";
 import "@/styles/SearchModal.css";
 
 export default function SearchModal() {
@@ -40,14 +40,18 @@ export default function SearchModal() {
   };
 
   const onClickEvent = (): void => {
+    const resultsValue = amountValue === "" ? customAmount : amountValue;
+
     if (+customAmount < 0 || +customAmount > 500) { 
       alert("Valor da quantidade de usuários não é compatível.");
     } else {
       setCustomAmount("");
       setIsOpenModal(false);
       toggleIsOpen();
-      router.push(`/search/?nat=${nat}&gender=${gender}&results=${amountValue === "" ? customAmount : amountValue}`);
-    }
+      router.push(`/search/?nat=${nat}&gender=${gender}&results=${resultsValue}&page=1`);
+      localStorage.setItem("reset-page-search", "1")
+      localStorage.setItem("page-search", "1")
+    };
   };
 
   return (

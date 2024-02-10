@@ -29,11 +29,12 @@ export default async function User(context: ContextParams) {
   let dataUser: IUserData;
 
   if (type === "search") {
-    const searchTest = await getSearchUser(limit, nat, gender);
+    const searchUser = await getSearchUser(limit, nat, gender);
 
-    dataUser = searchTest.data.find((user) => (
+    dataUser = searchUser.dataAll?.find((user) => (
       user.name.split(" ").join("-").toLowerCase() === decodeURIComponent(name).toLowerCase()
     )) as IUserData;
+    
   } else {
     dataUser = await getFilterUserApi(name, page, limit, seed);
   }

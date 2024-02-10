@@ -2,6 +2,7 @@ import { IUserData, IDataResponse, IInfoResponse } from "@/interfaces/IDataUser"
 
 type UsersList = {
   data: IUserData[],
+  dataAll?: IUserData[],
   page?: number,
   seed?: string,
   limit?: number,
@@ -77,11 +78,31 @@ export const getFilterUserApi = async (
   return user as IUserData;
 }
 
-export const getSearchUser = async (limit: string, nat: string, gender: string): Promise<UsersList> => {
+export const getSearchUser = async (limit: string, nat: string, gender: string, page: number = 1): Promise<UsersList> => {
+  const LIMIT_RENDER_USER = 16;
+  let initialData: number;
+  let endData: number;
+
   const responseSearchList = await fetch(`https://randomuser.me/api/?results=${limit}&nat=${nat}&gender=${gender}`);
   const dataSearch = await responseSearchList.json();
   const dataSearchUser: IDataResponse[] = dataSearch.results;
-  const dataSearchInfo: IInfoResponse = dataSearch.info;
   const structuredData = structureData(dataSearchUser);
-  return { data: structuredData, page: dataSearchInfo.page, seed: dataSearchInfo.seed };
+
+  if (page <= 1) {
+    initialData = 0;
+    endData = LIMIT_RENDER_USER;
+  } else {
+    endData = page * LIMIT_RENDER_USER;
+    initialData = endData - LIMIT_RENDER_USER;
+  };
+  
+  const currentDataUser: IUserData[] = structuredData.slice(initialData, endData);
+  const dataSearchInfo: IInfoResponse = dataSearch.info;
+
+  return {
+    data: currentDataUser,
+    dataAll: structuredData,
+    page: dataSearchInfo.page,
+    seed: dataSearchInfo.seed,
+  };
 }
