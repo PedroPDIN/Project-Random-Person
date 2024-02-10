@@ -1,5 +1,4 @@
 import { getFilterUserApi } from "@/services/api/randomUser.api";
-import { IUserData } from "@/interfaces/IDataUser";
 import MapUser from "@/components/MapUser";
 import InfoUser from "@/components/InfoUser";
 import LocationUser from "@/components/LocationUser";

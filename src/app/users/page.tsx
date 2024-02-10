@@ -8,7 +8,7 @@ export default async function Users({ searchParams }: { searchParams: { page: st
   const usersList = await getUsersList(+page, LIMIT_LIST_USERS);
 
   return (
-    <main className="flex items-center justify-center">
+    <main className="flex items-center justify-center pb-0">
       <div className="p-8 bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
         <ProfilesUsers
           data={usersList.data}

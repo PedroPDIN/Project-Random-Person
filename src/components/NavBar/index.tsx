@@ -2,11 +2,11 @@
 
 import { useMainContext } from "@/hooks/useMainContext";
 import { AiFillHome } from "react-icons/ai";
-import { AiOutlineSearch } from "react-icons/ai";
+import { FaDiagramPredecessor } from "react-icons/fa6";
 import Link from "next/link";
 
 export default function NavBar() {
-  const { isOpenNavBar, toggleIsOpen, isOpenModal, setIsOpenModal  } = useMainContext();
+  const { isOpenNavBar, toggleIsOpen } = useMainContext();
   
   const handleClick = (): void => {
     localStorage.removeItem("page");
@@ -29,16 +29,15 @@ export default function NavBar() {
             </li>
   
             <li>
-              <button
+              <Link
+                href="https://randomuser.me/documentation"
                 className="flex items-center grip gap-2 hover:bg-[#484b50] rounded-md p-2 transition w-full"
-                type="button"
-                onClick={() => setIsOpenModal(!isOpenModal)}
               >
-                <AiOutlineSearch className="mb-1" />
+                <FaDiagramPredecessor className="mb-1" />
                 <span className="text-xl">
-                  Procurar
+                  Sobre <span className="text-[#83ba43]">API</span>
                 </span>
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

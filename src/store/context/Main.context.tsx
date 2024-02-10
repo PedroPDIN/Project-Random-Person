@@ -13,9 +13,6 @@ const MainContext = createContext({} as IDataType);
 // provider
 export function MainProvider({ children }: Props) {
   const [isOpenNavBar, setIsOpenNavBar] = useState<boolean>(false);
-  const [gender, setGender] = useState<'female' | 'male' | ''>('');
-  const [nat, setNat] = useState<string>('');
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [title] = useState<string>("Random Person");
 
   const toggleIsOpen = () => setIsOpenNavBar(!isOpenNavBar);
@@ -25,12 +22,6 @@ export function MainProvider({ children }: Props) {
     setIsOpenNavBar,
     toggleIsOpen,
     title,
-    gender,
-    setGender,
-    nat,
-    setNat,
-    isOpenModal,
-    setIsOpenModal,
   };
 
   return (
