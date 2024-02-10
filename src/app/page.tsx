@@ -9,7 +9,7 @@ export default async function Home() {
   const { data, page, seed, limit } = await getPersonInitial(LIMIT_USER);
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <main className="flex flex-col items-center justify-center dark:bg-[#1b1f23]">
       <div className="flex flex-col shadow-md mt-32 w-full">
         <Slider data={data} />
       </div>
@@ -38,6 +38,6 @@ export default async function Home() {
           <FaArrowRight />
         </Link>
       </div>
-    </div>
+    </main>
   )
 }

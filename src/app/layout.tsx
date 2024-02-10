@@ -23,7 +23,7 @@ export default async function RootLayout({
   const profileUser = await getUserGithub();
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="dark">
       <body className={ubuntu.className}>
         <MainProvider>
           <main>
