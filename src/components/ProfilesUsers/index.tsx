@@ -42,7 +42,7 @@ export function ProfilesUsers({
         <Link
           href={structureUrl(person.name)}
           key={person.name}
-          className="bg-white shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
+          className="bg-white dark:bg-[#1b1f23] shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
         >
           <div className="bg-[#2c2e31] w-full h-[32%] absolute z-0 pt-4"></div>
 
@@ -51,12 +51,12 @@ export function ProfilesUsers({
             alt="profile-person"
             width={140}
             height={140}
-            className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white"
+            className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white dark:bg-[#1b1f23]"
           />
 
           <h2 className="font-bold">{person.name}</h2>
 
-          <div className="flex text-3xl gap-4 text-[#2c2e31] " >
+          <div className="flex text-3xl gap-4 text-[#2c2e31] dark:text-white" >
             <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger>
