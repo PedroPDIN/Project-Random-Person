@@ -22,12 +22,12 @@ export default function InfoUser({ picture, name, gender, age, phone, cell, emai
         <Image
           src={ picture }
           alt={`${name} profile`}
-          width={190}
-          height={190}
-          className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white mobile:max-tablet:w-[140px] mobile:max-tablet:h-[140px]max-micro-screen:w-[120px] max-micro-screen:h-[120px] micro-screen:max-mobile:w-[130px] micro-screen:max-mobile:h-[130px]"
+          width={170}
+          height={170}
+          className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white tablet:max-laptop:w-[160px] tablet:max-laptop:h-[160px] mobile:max-tablet:w-[140px] mobile:max-tablet:h-[140px] max-micro-screen:w-[120px] max-micro-screen:h-[120px] micro-screen:max-mobile:w-[130px] micro-screen:max-mobile:h-[130px]"
         />
 
-        <p className="flex flex-col text-center font-bold text-xl mobile:max-tablet:text-[18px] mobile:max-tablet:pt-2 max-micro-screen:text-[18px]">
+        <p className="flex flex-col text-center font-bold text-[18px] pt-2 tablet:max-laptop:text-[20px] tablet:max-laptop:pt-2 mobile:max-tablet:text-[18px] mobile:max-tablet:pt-2 max-micro-screen:text-[18px]">
           <span className="text-[#999]">Olá, meu nome é</span>
           {name}
         </p>
