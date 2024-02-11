@@ -14,6 +14,7 @@ module.exports = {
       'mobile': '600px',
       'tablet': '768px',
       'laptop': '992px',
+      'large-screen':  '1200px',
     },
     container: {
       center: true,
