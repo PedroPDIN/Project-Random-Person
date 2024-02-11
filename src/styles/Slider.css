@@ -9,7 +9,9 @@
 }
 
 #slide-container:before,
-#slide-container:after {
+#slide-container:after,
+#slide-container-dark:before,
+#slide-container-dark:after {
   position: absolute;
   top: 0;
   width: 18%;
@@ -20,12 +22,22 @@
 
 #slide-container:before {
   left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), white) !important;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
 #slide-container:after {
   right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white) !important;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+#slide-container-dark:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), #1b1f23);
+}
+
+#slide-container-dark:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #1b1f23);
 }
 
 
@@ -36,3 +48,4 @@
 #slides-person {
   animation: 40s slide infinite linear;
 }
+

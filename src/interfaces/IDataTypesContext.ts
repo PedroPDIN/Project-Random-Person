@@ -3,4 +3,6 @@ export interface IDataType {
   setIsOpenNavBar: React.Dispatch<React.SetStateAction<boolean>>,
   toggleIsOpen: () => void;
   title: string;
+  themeGlobal: string;
+  setThemeGlobal: React.Dispatch<React.SetStateAction<string>>,
 }

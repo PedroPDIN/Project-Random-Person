@@ -13,6 +13,7 @@ const MainContext = createContext({} as IDataType);
 // provider
 export function MainProvider({ children }: Props) {
   const [isOpenNavBar, setIsOpenNavBar] = useState<boolean>(false);
+  const [themeGlobal, setThemeGlobal] = useState<string>("")
   const [title] = useState<string>("Random Person");
 
   const toggleIsOpen = () => setIsOpenNavBar(!isOpenNavBar);
@@ -22,6 +23,8 @@ export function MainProvider({ children }: Props) {
     setIsOpenNavBar,
     toggleIsOpen,
     title,
+    themeGlobal,
+    setThemeGlobal,
   };
 
   return (

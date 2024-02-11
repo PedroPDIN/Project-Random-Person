@@ -1,5 +1,8 @@
+'use client'
+
 import { IUserData } from "@/interfaces/IDataUser"
 import Image from "next/image";
+import { useMainContext } from "@/hooks/useMainContext";
 import "@/styles/Slider.css";
 
 interface Props {
@@ -7,10 +10,12 @@ interface Props {
 };
 
 export function Slider({ data }: Props) {
+  const { themeGlobal } = useMainContext();
+
   return (
     <div
-      id="slide-container"
-      className="bg-white py-[20px] overflow-hidden whitespace-nowrap relative"
+      id={themeGlobal === "light" ? "slide-container" : "slide-container-dark"}
+      className="bg-white py-[20px] overflow-hidden whitespace-nowrap relative dark:bg-[#2c2e31]"
     >
       {data.map((person) => (
         <div
