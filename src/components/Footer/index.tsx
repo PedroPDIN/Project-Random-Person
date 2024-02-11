@@ -14,7 +14,7 @@ export function Footer({ avatarUser, urlUser }: Props) {
 
   return (
     <div className="bg-[#2c2e31] h-[18rem] absolute bottom-0 w-full">
-      <h1 className="text-center text-4xl mobile:max-tablet:text-3xl max-mobile:text-2xl font-bold text-white py-8">{title}</h1>
+      <h1 className="text-center text-4xl tablet:max-laptop:text-3xl mobile:max-tablet:text-3xl max-mobile:text-2xl font-bold text-white py-8">{title}</h1>
 
       <div className="flex justify-around">
         <div className="flex flex-col gap-1">

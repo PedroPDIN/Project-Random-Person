@@ -42,7 +42,7 @@ export function ProfilesUsers({
         <Link
           href={structureUrl(person.name)}
           key={person.name}
-          className="bg-white dark:bg-[#1b1f23] shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] max-mobile:w-[200px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
+          className="bg-white dark:bg-[#1b1f23] shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] tablet:max-laptop:w-[210px] max-mobile:w-[200px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
         >
           <div className="bg-[#2c2e31] w-full h-[32%] absolute z-0 pt-4"></div>
 

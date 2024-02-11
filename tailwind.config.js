@@ -13,6 +13,7 @@ module.exports = {
       'micro-screen': '400px',
       'mobile': '600px',
       'tablet': '768px',
+      'laptop': '992px',
     },
     container: {
       center: true,
