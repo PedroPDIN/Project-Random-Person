@@ -19,11 +19,6 @@ interface Props {
   valueColumns?: number
 }
 
-// const defineClassContainer = (columns: number | undefined): string => {
-//   if (columns === 4) return "grid grid-cols-4 gap-4";
-//   return "grid grid-cols-3 gap-4";
-// } 
-
 export function ProfilesUsers({
   data,
   page,
@@ -37,7 +32,7 @@ export function ProfilesUsers({
   }
 
   return (
-    <div className={`grid ${valueColumns ? `grid-cols-${valueColumns}` : "grid-cols-1"} gap-4 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}>
+    <div className={`grid ${valueColumns ? `grid-cols-${valueColumns}` : "grid-cols-1"} gap-4 tablet:max-laptop:grid-cols-3 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}>
       {data.map((person) => (
         <Link
           href={structureUrl(person.name)}
