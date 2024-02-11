@@ -17,7 +17,7 @@ interface Props {
 
 export default function InfoUser({ picture, name, gender, age, phone, cell, email }: Props) {
   return (
-    <div className="flex justify-around items-center bg-white border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg px-4 py-12">
+    <div className="flex justify-around items-center bg-white border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg px-4 py-12 dark:bg-[#2c2e31] transition ease-out">
       <div className="flex flex-col justify-center">
         <Image
           src={ picture }
@@ -33,7 +33,7 @@ export default function InfoUser({ picture, name, gender, age, phone, cell, emai
         </p>
       </div>
 
-      <div className="border-separate border-2 border-[rgba(0,0,0,.25)] h-[200px] rounded-full"></div>
+      <div className="border-separate border-2 border-[rgba(0,0,0,.25)] h-[200px] rounded-full dark:border-white"></div>
 
       <div className="grid gap-3">
         <div className="grid gap-1">
@@ -54,7 +54,7 @@ export default function InfoUser({ picture, name, gender, age, phone, cell, emai
           </span>
         </div>
 
-        <hr className="" />
+        <hr />
 
         <div className="grid gap-1">
           <h3 className="pb-1 font-bold">Contato</h3>

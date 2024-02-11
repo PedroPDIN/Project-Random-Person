@@ -26,7 +26,7 @@ export default async function User(context: ContextParams) {
   };
 
   return (
-    <main className="mt-28 flex flex-col items-center justify-center pb-0">
+    <main className="pt-28 flex flex-col items-center justify-center dark:bg-[#1b1f23] transition ease-out">
       <div className="w-[50%] mb-6">
         <InfoUser
           picture={dataUser.picture.large}
