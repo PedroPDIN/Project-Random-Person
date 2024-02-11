@@ -41,7 +41,7 @@
 }
 
 
-#slide-container:hover, #slides-person {
+#slide-container:hover, #slide-container-dark:hover, #slides-person {
   animation-play-state: paused;
 }
 
