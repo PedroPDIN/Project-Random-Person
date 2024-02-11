@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMainContext } from '@/hooks/useMainContext';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import "@/styles/PaginationColor.css";
 
 export default function ControlPagination() {
   const [page, setPage] = useState<string>("1");
+  const { themeGlobal } = useMainContext();
   const router = useRouter();
 
   useEffect(() => { // necessário usar useEffect para evitar erro de pilhagem.
@@ -26,11 +29,13 @@ export default function ControlPagination() {
   };
 
   return (
-    <Stack spacing={4} className="flex items-center justify-center pt-8">
+    <Stack spacing={4} className="flex items-center justify-center pt-8 text-white">
       <Pagination
         count={10}
         page={+page}
         onChange={handleChange}
+        color="primary"
+        className={`${themeGlobal === "dark" && "button-color-mode-dark"}`}
       />
     </Stack>
   )
