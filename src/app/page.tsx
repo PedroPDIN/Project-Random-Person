@@ -14,17 +14,9 @@ export default async function Home() {
         <Slider data={data} />
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-6 p-8 bg-white dark:bg-[#2c2e31] shadow-md mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
+      <div className="flex flex-col items-center justify-center gap-6 p-8 max-mobile:p-4  bg-white dark:bg-[#2c2e31] shadow-md mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
         <ProfilesUsers
-          data={data.slice(0, 3)}
-          page={page as number}
-          seed={seed as string}
-          limit={limit as number}
-        />
-        
-        <ProfilesUsers
-          data={data.slice(3, 6)}
-          valueColumns={3}
+          data={data.slice(0, 6)}
           page={page as number}
           seed={seed as string}
           limit={limit as number}

@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="bg-[#2c2e31] text-white relative h-20 z-0">
-      <div className="flex justify-between pt-8 px-20">
+      <div className="flex justify-between items-center pt-8 px-20 max-mobile:px-12">
         <div>
           {isOpenNavBar ? (
             <button
@@ -32,7 +32,7 @@ export default function Header() {
           <h1 className="text-3xl font-bold flex items-center text-center">{ title }</h1>
         </div>
 
-        <div className="text-4xl">
+        <div className="text-4xl max-mobile:text-3xl">
           <DarkModeBtn />
         </div>
       </div>

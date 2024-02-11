@@ -19,10 +19,10 @@ interface Props {
   valueColumns?: number
 }
 
-const defineClassContainer = (columns: number | undefined): string => {
-  if (columns === 4) return "grid grid-cols-4 gap-4";
-  return "grid grid-cols-3 gap-4";
-} 
+// const defineClassContainer = (columns: number | undefined): string => {
+//   if (columns === 4) return "grid grid-cols-4 gap-4";
+//   return "grid grid-cols-3 gap-4";
+// } 
 
 export function ProfilesUsers({
   data,
@@ -37,12 +37,12 @@ export function ProfilesUsers({
   }
 
   return (
-    <div className={defineClassContainer(valueColumns)}>
+    <div className="grid grid-cols-3 gap-4 max-mobile:grid-cols-2 max-mobile:gap-1">
       {data.map((person) => (
         <Link
           href={structureUrl(person.name)}
           key={person.name}
-          className="bg-white dark:bg-[#1b1f23] shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
+          className="bg-white dark:bg-[#1b1f23] shadow-inner rounded-md flex flex-col items-center px-4 pb-4 space-y-4 cursor-pointer w-[250px] max-mobile:w-[200px] relative overflow-hidden transition ease-out border-solid border-2 border-[rgba(0,0,0,.25)]"
         >
           <div className="bg-[#2c2e31] w-full h-[32%] absolute z-0 pt-4"></div>
 
@@ -51,12 +51,12 @@ export function ProfilesUsers({
             alt="profile-person"
             width={140}
             height={140}
-            className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white dark:bg-[#1b1f23]"
+            className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white dark:bg-[#1b1f23] max-mobile:w-[100px] max-mobile:h-[100px]"
           />
 
-          <h2 className="font-bold">{person.name}</h2>
+          <h2 className="font-bold max-mobile:text-[14px]">{person.name}</h2>
 
-          <div className="flex text-3xl gap-4 text-[#2c2e31] dark:text-white" >
+          <div className="flex text-3xl max-mobile:text-[20px] gap-4 text-[#2c2e31] dark:text-white" >
             <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger>
@@ -89,7 +89,7 @@ export function ProfilesUsers({
                 <TooltipTrigger>
                   <BsFillTelephoneFill
                     data-tooltip-target="tooltip-default"
-                    className="hover:text-[#4e5157] transition ease-out text-2xl" />
+                    className="hover:text-[#4e5157] transition ease-out text-2xl max-mobile:text-[20px]" />
                 </TooltipTrigger>
                 <TooltipContent className="bg-[#4e5157] border-0">
                   <p className="text-white font-bold">{person.cell}</p>
