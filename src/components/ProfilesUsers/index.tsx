@@ -37,7 +37,7 @@ export function ProfilesUsers({
   }
 
   return (
-    <div className="grid grid-cols-3 gap-4 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1">
+    <div className={`grid ${valueColumns ? `grid-cols-${valueColumns}` : "grid-cols-1"} gap-4 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}>
       {data.map((person) => (
         <Link
           href={structureUrl(person.name)}

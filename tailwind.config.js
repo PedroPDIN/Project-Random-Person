@@ -10,7 +10,7 @@ module.exports = {
   prefix: "",
   theme: {
     screens: {
-      'micro-screen': '400px',
+      'micro-screen': '500px',
       'mobile': '600px',
       'tablet': '768px',
       'laptop': '992px',

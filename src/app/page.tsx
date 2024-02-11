@@ -20,6 +20,7 @@ export default async function Home() {
           page={page as number}
           seed={seed as string}
           limit={limit as number}
+          valueColumns={3}
         />
 
         <Link

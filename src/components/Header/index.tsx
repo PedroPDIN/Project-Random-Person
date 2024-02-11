@@ -8,7 +8,7 @@ export default function Header() {
   const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
 
   return (
-    <header className="bg-[#2c2e31] text-white relative h-20 z-0">
+    <header className="bg-[#2c2e31] text-white relative h-20 max-micro-screen:h-40 z-0">
       <div className="flex justify-between items-center pt-8 px-20 max-mobile:px-12">
         <div>
           {isOpenNavBar ? (
@@ -29,7 +29,7 @@ export default function Header() {
         </div>
 
         <div className="h-full z-0">
-          <h1 className="text-3xl font-bold flex items-center text-center">{ title }</h1>
+          <h1 className="text-3xl font-bold flex items-center text-center max-micro-screen:text-xl">{ title }</h1>
         </div>
 
         <div className="text-4xl max-mobile:text-3xl">
@@ -37,7 +37,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="w-full py-8 bg-[#2c2e31] shadow-2xl"></div>
+      <div className="w-full py-8 bg-[#2c2e31] shadow-2xl max-micro-screen:py-0"></div>
     </header>
   )
 }
