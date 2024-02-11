@@ -16,7 +16,7 @@ interface Props {
   page: number;
   seed: string; 
   limit: number;
-  valueColumns: number
+  valueColumns: 3 | 4
 }
 
 export function ProfilesUsers({
@@ -27,12 +27,21 @@ export function ProfilesUsers({
   valueColumns,
 }: Props) {
 
+  const columnsList = (): string => {
+    if (valueColumns === 3) {
+      return "grid-cols-3";
+    }
+    return "grid-cols-4";
+  };
+
   const structureUrl = (name: string): string => {
     return `/user/${name.split(" ").join("-").toLowerCase()}?page=${page}&limit=${limit}&seed=${seed}`
-  }
+  };
 
   return (
-    <div className={`grid ${`grid-cols-${valueColumns}`} gap-4 tablet:max-laptop:grid-cols-3 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}>
+    <div
+      className={`grid ${columnsList()} gap-4 tablet:max-laptop:grid-cols-3 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}
+    >
       {data.map((person) => (
         <Link
           href={structureUrl(person.name)}
