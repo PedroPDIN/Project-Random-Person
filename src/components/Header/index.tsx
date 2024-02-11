@@ -5,22 +5,22 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useMainContext } from "@/hooks/useMainContext";
 import DarkModeBtn from "../DarkModeBtn";
 export default function Header() {
-  const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
+const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
 
   return (
-    <header className="bg-[#2c2e31] text-white relative h-20 max-micro-screen:h-40 z-0">
+    <header className="bg-[#2c2e31] text-white relative h-20 max-micro-screen:h-40 max-micro-screen:shadow-lg z-50">
       <div className="flex justify-between items-center pt-8 px-20 max-mobile:px-12 max-micro-screen:px-6">
         <div>
           {isOpenNavBar ? (
             <button
-              className="z-10 h-full flex items-center"
+              className="h-full flex items-center"
               onClick={toggleIsOpen}
             >
               <FaArrowLeft className="text-4xl hover:bg-[#484b50] rounded-md p-1 transition" />
             </button>
           ) : (
             <button
-              className="z-10 h-full flex items-center"
+              className="h-full flex items-center"
               onClick={toggleIsOpen}
             >
               <MdOutlineMenu className="text-4xl hover:bg-[#484b50] rounded-md p-1 transition" />
