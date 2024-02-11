@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <header className="bg-[#2c2e31] text-white relative h-20 max-micro-screen:h-40 z-0">
-      <div className="flex justify-between items-center pt-8 px-20 max-mobile:px-12">
+      <div className="flex justify-between items-center pt-8 px-20 max-mobile:px-12 max-micro-screen:px-6">
         <div>
           {isOpenNavBar ? (
             <button
