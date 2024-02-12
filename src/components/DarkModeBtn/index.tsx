@@ -16,6 +16,7 @@ export default function DarkModeBtn() {
       root.add(theme as string);
       localStorage.setItem("theme", theme as string);
       setThemeGlobal(theme as string)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme])
   
   return (
