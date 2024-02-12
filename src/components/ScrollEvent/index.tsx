@@ -12,7 +12,7 @@ export const ScrollEvent = ({ children }: Props) => {
 
   useEffect(() => {
     document.addEventListener('scroll', () => setIsOpenNavBar(false))
-  }, []);
+  }, [setIsOpenNavBar]);
 
   return (
     <>
