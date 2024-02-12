@@ -39,7 +39,7 @@ export function ProfilesUsers({
   };
 
   return (
-    <div
+    <article
       className={`grid ${columnsList()} gap-4 tablet:max-laptop:grid-cols-3 mobile:max-tablet:grid-cols-2 max-mobile:grid-cols-2 max-mobile:gap-1 max-micro-screen:grid-cols-1`}
     >
       {data.map((person) => (
@@ -103,6 +103,6 @@ export function ProfilesUsers({
           </div>
         </Link>
       ))}
-    </div>
+    </article>
   )
 }

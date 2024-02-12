@@ -9,7 +9,7 @@ interface Props {
 
 export default function LocationUser({ country, state, city }: Props) {
   return (
-    <div className="bg-white p-4 border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg flex flex-col dark:bg-[#2c2e31] transition ease-out  max-micro-screen:text-[14px]">
+    <section className="bg-white p-4 border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg flex flex-col dark:bg-[#2c2e31] transition ease-out  max-micro-screen:text-[14px]">
       <h3 className="flex items-center font-bold text-xl pb-2"><FaLocationDot className="text-xl pr-2" />Localização</h3>
 
       <span className="flex font-bold">
@@ -26,6 +26,6 @@ export default function LocationUser({ country, state, city }: Props) {
         <FaMapLocationDot className="text-2xl pr-2" />
         Cidade: <span className="font-normal pl-2">{city}</span>
       </span>
-    </div>
+    </section>
   )
 }

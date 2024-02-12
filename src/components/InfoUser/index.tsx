@@ -17,7 +17,7 @@ interface Props {
 
 export default function InfoUser({ picture, name, gender, age, phone, cell, email }: Props) {
   return (
-    <div className="flex micro-screen:max-mobile:flex-col max-micro-screen:flex-col justify-around items-center bg-white border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg px-4 py-12 dark:bg-[#2c2e31] transition ease-out">
+    <section className="flex micro-screen:max-mobile:flex-col max-micro-screen:flex-col justify-around items-center bg-white border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg px-4 py-12 dark:bg-[#2c2e31] transition ease-out">
       <div className="flex flex-col justify-center max-micro-screen:items-center micro-screen:max-mobile:items-center micro-screen:max-mobile:pb-4">
         <Image
           src={ picture }
@@ -74,6 +74,6 @@ export default function InfoUser({ picture, name, gender, age, phone, cell, emai
           </span>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

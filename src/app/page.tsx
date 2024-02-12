@@ -10,11 +10,11 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center dark:bg-[#1b1f23] transition ease-out">
-      <div className="flex flex-col shadow-md mt-32 w-full">
+      <article className="flex flex-col shadow-md mt-32 w-full">
         <Slider data={data} />
-      </div>
+      </article>
 
-      <div className="flex flex-col items-center justify-center gap-6 p-8 max-mobile:p-4  bg-white dark:bg-[#2c2e31] shadow-md mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
+      <section className="flex flex-col items-center justify-center gap-6 p-8 max-mobile:p-4  bg-white dark:bg-[#2c2e31] shadow-md mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
         <ProfilesUsers
           data={data.slice(0, 6)}
           page={page as number}
@@ -30,7 +30,7 @@ export default async function Home() {
           Ver mais
           <FaArrowRight />
         </Link>
-      </div>
+      </section>
     </main>
   )
 }

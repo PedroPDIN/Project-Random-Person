@@ -13,7 +13,7 @@ export function Footer({ avatarUser, urlUser }: Props) {
   const { title } = useMainContext();
 
   return (
-    <div className="bg-[#2c2e31] h-[18rem] max-micro-screen:h-[24rem] absolute bottom-0 w-full">
+    <footer className="bg-[#2c2e31] h-[18rem] max-micro-screen:h-[24rem] absolute bottom-0 w-full">
       <h1 className="text-center text-4xl tablet:max-laptop:text-3xl mobile:max-tablet:text-3xl max-mobile:text-2xl font-bold text-white py-8">{title}</h1>
 
       <div className="flex justify-around max-micro-screen:flex-col max-micro-screen:items-center">
@@ -37,6 +37,6 @@ export function Footer({ avatarUser, urlUser }: Props) {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }

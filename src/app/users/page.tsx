@@ -9,7 +9,7 @@ export default async function Users({ searchParams }: { searchParams: { page: st
 
   return (
     <main className="flex items-center justify-center dark:bg-[#1b1f23] transition ease-out">
-      <div className="p-8 max-micro-screen:p-2 max-micro-screen:flex max-micro-screen:flex-col max-micro-screen:items-center bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm dark:bg-[#2c2e31] ">
+      <section className="p-8 max-micro-screen:p-2 max-micro-screen:flex max-micro-screen:flex-col max-micro-screen:items-center bg-white shadow-sm mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm dark:bg-[#2c2e31] ">
         <ProfilesUsers
           data={usersList.data}
           page={+page}
@@ -18,7 +18,7 @@ export default async function Users({ searchParams }: { searchParams: { page: st
           valueColumns={4}
         />
         <ControlPagination />
-      </div>
+      </section>
     </main>
   )
 }
