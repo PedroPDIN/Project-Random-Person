@@ -1,7 +1,10 @@
 import { getFilterUserApi } from "@/services/api/randomUser.api";
+import { Suspense } from "react";
 import MapUser from "@/components/MapUser";
 import InfoUser from "@/components/InfoUser";
 import LocationUser from "@/components/LocationUser";
+import UserLoading from "./loading";
+
 
 interface ContextParams {
   params: {
@@ -27,41 +30,43 @@ export default async function User(context: ContextParams) {
 
   return (
     <main className="pt-28 flex flex-col items-center justify-center dark:bg-[#1b1f23] transition ease-out">
-      <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%] mb-6">
-        <InfoUser
-          picture={dataUser.picture.large}
-          name={dataUser.name}
-          gender={dataUser.gender}
-          age={dataUser.dob.age}
-          phone={dataUser.phone}
-          cell={dataUser.cell}
-          email={dataUser.email}
-        />
-      </article>
-
-      <article className="w-[50%] mb-6 max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%]">
-        <LocationUser
-          country={dataUser.country}
-          state={dataUser.state}
-          city={dataUser.city}
-        />
-      </article>
-      
-      <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%] h-[24rem] rounded-md overflow-hidden bg-white border-solid border-2 border-[rgba(0,0,0,.25)] shadow-lg mb-2">
-          <MapUser
-          position={position}
-          street={dataUser.street}
-          country={dataUser.country}
-          state={dataUser.state}
-          city={dataUser.city}
+      <Suspense fallback={<UserLoading />}>
+        <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%] mb-6">
+          <InfoUser
+            picture={dataUser.picture.large}
+            name={dataUser.name}
+            gender={dataUser.gender}
+            age={dataUser.dob.age}
+            phone={dataUser.phone}
+            cell={dataUser.cell}
+            email={dataUser.email}
           />
-      </article>
+        </article>
 
-      <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%]">
-        <span className="text-[13px] flex items-center font-bold whitespace-normal">
-          &#128680; &#128680; As informações de localização são randômicas, ou seja, aleatórias. Com isso, as coordenadas da localização no mapa são imprevistas e até mesmo descontínuas.
-        </span>
-      </article>
+        <article className="w-[50%] mb-6 max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%]">
+          <LocationUser
+            country={dataUser.country}
+            state={dataUser.state}
+            city={dataUser.city}
+          />
+        </article>
+        
+        <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%] h-[24rem] rounded-md overflow-hidden bg-white border-solid border-2 border-[rgba(0,0,0,.25)] shadow-lg mb-2">
+            <MapUser
+            position={position}
+            street={dataUser.street}
+            country={dataUser.country}
+            state={dataUser.state}
+            city={dataUser.city}
+            />
+        </article>
+
+        <article className="w-[50%] max-large-screen:w-[60%] tablet:max-laptop:w-[70%] mobile:max-tablet:w-[80%] micro-screen:max-mobile:w-[80%] max-micro-screen:w-[80%]">
+          <span className="text-[13px] flex items-center font-bold whitespace-normal">
+            &#128680; &#128680; As informações de localização são randômicas, ou seja, aleatórias. Com isso, as coordenadas da localização no mapa são imprevistas e até mesmo descontínuas.
+          </span>
+        </article>
+      </Suspense>
     </main>
   )
 }

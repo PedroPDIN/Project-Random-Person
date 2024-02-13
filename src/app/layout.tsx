@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import NavBar from '@/components/NavBar';
 import { Ubuntu } from 'next/font/google';
+import { Suspense } from 'react';
 import { MainProvider } from '@/store/context/Main.context';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
 import { ScrollEvent } from '@/components/ScrollEvent';
+import Loading from './loading';
 import './globals.css';
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -30,7 +32,9 @@ export default async function RootLayout({
             <Header />
             <NavBar />
             <ScrollEvent>
-              {children}
+              <Suspense fallback={<Loading />}>
+                {children}
+              </Suspense>
             </ScrollEvent>
           </main>
           <Footer
