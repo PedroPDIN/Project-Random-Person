@@ -1,11 +1,14 @@
 'use client'
 
+import dynamic from "next/dynamic";
 import { MdOutlineMenu } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
 import { useMainContext } from "@/hooks/useMainContext";
-import DarkModeBtn from "../DarkModeBtn";
+
+const ToggleNoSSR = dynamic(() => import('@/components/Toggle'), { ssr: false });
+
 export default function Header() {
-const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
+  const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
 
   return (
     <header className="bg-[#2c2e31] text-white relative h-20 max-micro-screen:h-40 max-micro-screen:shadow-lg z-50">
@@ -33,7 +36,7 @@ const { isOpenNavBar, toggleIsOpen, title } = useMainContext();
         </div>
 
         <div className="text-4xl max-mobile:text-3xl">
-          <DarkModeBtn />
+          <ToggleNoSSR />
         </div>
       </div>
 

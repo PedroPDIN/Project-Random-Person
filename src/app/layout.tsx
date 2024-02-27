@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import { Ubuntu } from 'next/font/google';
 import { Suspense } from 'react';
 import { MainProvider } from '@/store/context/Main.context';
+import { ThemeProvider } from '@/hooks/useThemeContext';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
 import { ScrollEvent } from '@/components/ScrollEvent';
@@ -28,19 +29,21 @@ export default async function RootLayout({
     <html lang="pt-BR" className="dark">
       <body className={ubuntu.className}>
         <MainProvider>
-          <main>
-            <Header />
-            <NavBar />
-            <ScrollEvent>
-              <Suspense fallback={<Loading />}>
-                {children}
-              </Suspense>
-            </ScrollEvent>
-          </main>
-          <Footer
-            avatarUser={profileUser.avatar_url}
-            urlUser={profileUser.html_url}
-          />
+          <ThemeProvider>
+            <main>
+              <Header />
+              <NavBar />
+              <ScrollEvent>
+                <Suspense fallback={<Loading />}>
+                  {children}
+                </Suspense>
+              </ScrollEvent>
+            </main>
+            <Footer
+              avatarUser={profileUser.avatar_url}
+              urlUser={profileUser.html_url}
+            />
+          </ThemeProvider>
         </MainProvider>
       </body>
     </html>
