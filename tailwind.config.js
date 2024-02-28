@@ -25,6 +25,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        bgDarkMode: "#1b1f23",
+        colorSecondary: "#2c2e31",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

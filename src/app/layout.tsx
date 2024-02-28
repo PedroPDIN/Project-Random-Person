@@ -30,8 +30,8 @@ export default async function RootLayout({
       <body className={ubuntu.className}>
         <MainProvider>
           <ThemeProvider>
+            <Header />
             <main>
-              <Header />
               <NavBar />
               <ScrollEvent>
                 <Suspense fallback={<HomeLoading />}>
