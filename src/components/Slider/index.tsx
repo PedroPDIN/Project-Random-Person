@@ -15,7 +15,7 @@ export function Slider({ data }: Props) {
   return (
     <div
       id={themeGlobal === "light" ? "slide-container" : "slide-container-dark"}
-      className="bg-white py-[20px] max-mobile:py-1 overflow-hidden whitespace-nowrap relative dark:bg-[#2c2e31]"
+      className="bg-white py-[20px] max-mobile:py-1 overflow-hidden whitespace-nowrap relative dark:bg-colorSecondary"
     >
       {data.map((person) => (
         <div

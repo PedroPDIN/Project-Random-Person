@@ -17,14 +17,14 @@ interface Props {
 
 export default function InfoUser({ picture, name, gender, age, phone, cell, email }: Props) {
   return (
-    <section className="flex micro-screen:max-mobile:flex-col max-micro-screen:flex-col justify-around items-center bg-white border-solid border-2 border-[rgba(0,0,0,.25)] rounded-md shadow-lg px-4 py-12 dark:bg-[#2c2e31] transition ease-out">
+    <section className="flex micro-screen:max-mobile:flex-col max-micro-screen:flex-col justify-around items-center bg-white border-solid border-2 border-borderColorPrimary rounded-md shadow-lg px-4 py-12 dark:bg-colorSecondary transition ease-out">
       <div className="flex flex-col justify-center max-micro-screen:items-center micro-screen:max-mobile:items-center micro-screen:max-mobile:pb-4">
         <Image
           src={ picture }
           alt={`${name} profile`}
           width={170}
           height={170}
-          className="rounded-full p-1 border-solid border-2 border-[rgba(0,0,0,.25)] z-10 bg-white tablet:max-laptop:w-[160px] tablet:max-laptop:h-[160px] mobile:max-tablet:w-[140px] mobile:max-tablet:h-[140px] max-micro-screen:w-[120px] max-micro-screen:h-[120px] micro-screen:max-mobile:w-[130px] micro-screen:max-mobile:h-[130px]"
+          className="rounded-full p-1 border-solid border-2 border-borderColorPrimary z-10 bg-white tablet:max-laptop:w-[160px] tablet:max-laptop:h-[160px] mobile:max-tablet:w-[140px] mobile:max-tablet:h-[140px] max-micro-screen:w-[120px] max-micro-screen:h-[120px] micro-screen:max-mobile:w-[130px] micro-screen:max-mobile:h-[130px]"
         />
 
         <p className="flex flex-col text-center font-bold text-[18px] pt-2 tablet:max-laptop:text-[20px] tablet:max-laptop:pt-2 mobile:max-tablet:text-[18px] mobile:max-tablet:pt-2 max-micro-screen:text-[18px]">
@@ -33,7 +33,7 @@ export default function InfoUser({ picture, name, gender, age, phone, cell, emai
         </p>
       </div>
 
-      <div className="border-separate border-2 mobile:max-tablet:border-1 border-[rgba(0,0,0,.25)] h-[200px] rounded-full dark:border-white max-micro-screen:hidden micro-screen:max-mobile:hidden"></div>
+      <div className="border-separate border-2 mobile:max-tablet:border-1 border-borderColorPrimary h-[200px] rounded-full dark:border-white max-micro-screen:hidden micro-screen:max-mobile:hidden"></div>
 
       <div className="grid gap-3 max-micro-screen:w-[90%] micro-screen:max-mobile:w-[90%] max-micro-screen:text-[14px]">
         <div className="grid gap-1">

@@ -27,6 +27,12 @@ module.exports = {
       colors: {
         bgDarkMode: "#1b1f23",
         colorSecondary: "#2c2e31",
+        colorTertiary: "#a3a3a5",
+        colorQuaternary: "#83ba43",
+        hoverColorPrimary: "#6e6e6e",
+        hoverColorSecondary: "#4e5157",
+        hoverColorMenu: "#484b50",
+        borderColorPrimary: "rgba(0,0,0,.25)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -13,7 +13,7 @@ export function Footer({ avatarUser, urlUser }: Props) {
   const { title } = useMainContext();
 
   return (
-    <footer className="bg-[#2c2e31] h-[18rem] max-micro-screen:h-[24rem] absolute bottom-0 w-full">
+    <footer className="bg-colorSecondary h-[18rem] max-micro-screen:h-[24rem] absolute bottom-0 w-full">
       <h1 className="text-center text-4xl tablet:max-laptop:text-3xl mobile:max-tablet:text-3xl max-mobile:text-2xl font-bold text-white py-8">{title}</h1>
 
       <div className="flex justify-around max-micro-screen:flex-col max-micro-screen:items-center">
@@ -32,8 +32,8 @@ export function Footer({ avatarUser, urlUser }: Props) {
 
         <div className="flex flex-col gap-1 max-micro-screen:items-center max-micro-screen:pt-2">
           <h3 className="text-white">Copyright Notice</h3>
-          <p className="text-[12px] text-[#a3a3a5] font-bold w-[260px] whitespace-normal max-micro-screen:w-[80%]">
-            Os dados disponíveis nesta aplicação são fornecidos pela API <a href="https://randomuser.me/" className="text-[#83ba43]">randomuser.me</a> e estão sujeitos aos termos e condições da API. Esta API é pública, e o uso dos dados é permitido.
+          <p className="text-[12px] text-colorTertiary font-bold w-[260px] whitespace-normal max-micro-screen:w-[80%]">
+            Os dados disponíveis nesta aplicação são fornecidos pela API <a href="https://randomuser.me/" className="text-colorQuaternary">randomuser.me</a> e estão sujeitos aos termos e condições da API. Esta API é pública, e o uso dos dados é permitido.
           </p>
         </div>
       </div>

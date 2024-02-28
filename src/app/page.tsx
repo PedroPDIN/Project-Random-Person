@@ -14,7 +14,7 @@ export default async function Home() {
         <Slider data={data} />
       </article>
 
-      <section className="flex flex-col items-center justify-center gap-6 p-8 max-mobile:p-4 bg-white dark:bg-bgDarkMode shadow-md mt-24 border-solid border-[1px] border-[rgba(0,0,0,.25)] rounded-sm">
+      <section className="flex flex-col items-center justify-center gap-6 p-8 max-mobile:p-4 bg-white dark:bg-bgDarkMode shadow-md mt-24 border-solid border-[1px] border-borderColorPrimary rounded-sm">
         <ProfilesUsers
           data={data.slice(0, 6)}
           page={page as number}

@@ -14,7 +14,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className={`bg-[#2c2e31] p-6 absolute h-[100vh] z-40  ${!isOpenNavBar && 'invisible'}`}>
+    <nav className={`bg-colorSecondary p-6 absolute h-[100vh] z-40  ${!isOpenNavBar && 'invisible'}`}>
       <div className="flex flex-col h-full pt-20 tablet:max-laptop:pt-16 mobile:max-tablet:pt-14 micro-screen:max-mobile:pt-10 max-micro-screen:pt-2">
         <div className="p-2" >
           <ul className="text-[20px] font-bold text-white grid" >
@@ -22,7 +22,7 @@ export default function NavBar() {
               <Link
                 href="/"
                 onClick={handleClick}
-                className="flex items-center grip gap-2 hover:bg-[#484b50] rounded-md p-2 transition">
+                className="flex items-center grip gap-2 hover:bg-hoverColorMenu rounded-md p-2 transition">
                 <AiFillHome className="mb-1" />
                 <span className="text-[18px]">
                   Pagina Inicial
@@ -33,11 +33,11 @@ export default function NavBar() {
             <li>
               <Link
                 href="https://randomuser.me/documentation"
-                className="flex items-center grip gap-2 hover:bg-[#484b50] rounded-md p-2 transition w-full"
+                className="flex items-center grip gap-2 hover:bg-hoverColorMenu rounded-md p-2 transition w-full"
               >
                 <FaDiagramPredecessor className="mb-1" />
                 <span className="text-[18px]">
-                  Sobre <span className="text-[#83ba43]">API</span>
+                  Sobre <span className="text-colorQuaternary">API</span>
                 </span>
               </Link>
             </li>
