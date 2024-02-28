@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/hooks/useThemeContext';
 import { getUserGithub } from '@/services/api/github.api';
 import { Footer } from '@/components/Footer';
 import { ScrollEvent } from '@/components/ScrollEvent';
-import Loading from './loading';
+import HomeLoading from './loading';
 import './globals.css';
 
 const ubuntu = Ubuntu({ weight: "300", subsets: ['latin'] })
@@ -34,7 +34,7 @@ export default async function RootLayout({
               <Header />
               <NavBar />
               <ScrollEvent>
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<HomeLoading />}>
                   {children}
                 </Suspense>
               </ScrollEvent>
