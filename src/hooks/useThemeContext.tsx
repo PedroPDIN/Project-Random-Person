@@ -55,6 +55,7 @@ export const ThemeProvider = ({
 
   useEffect(() => {
     rawSetTheme(theme)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme]);
 
   const contextValue = {
